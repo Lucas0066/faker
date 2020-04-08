@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <el-container >
-      <el-container>
-        <el-aside width="240px" height="1014px">
+    <el-container>
+      <el-header style=" background-color: #C5292B  ">Header</el-header>
+      <el-container style="height: 1014px; border: 1px solid #eee ; background-color: #FFFFF ">
+        <el-aside width="240px" style="background-color: #FFFFFF ">
           <left></left>
         </el-aside>
+
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
+
     <div id="nav"></div>
-    <router-view />
   </div>
 </template>
 <script>
@@ -41,10 +46,4 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
- .el-aside {
-    background-color: #FFFFFF;
-    color: #333333;
-    text-align: center;
-    line-height: 1014px;
-  }
 </style>
