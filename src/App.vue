@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header style=" background-color: #C5292B  ">Header</el-header>
-      <el-container style="height: 1014px; border: 1px solid #eee ; background-color: #FFFFF ">
+      <el-header style=" background-color: #C5292B " >公文处理系统</el-header>
+      <el-container style="height: 1014px; border: 1px solid #eee ; background-color: #FAFAFA ">
         <el-aside width="240px" style="background-color: #FFFFFF ">
           <left></left>
         </el-aside>
@@ -46,4 +46,5 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+ 
 </style>

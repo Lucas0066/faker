@@ -1,67 +1,12 @@
 <template>
-  <el-container style="height: 500px; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: #FFFFF4 ">
-      <el-menu :default-openeds="['1', '3']">
-     
-        <el-submenu index="/about">
-          <template slot="title">
-            <i class="el-icon-menu"></i>导航二
-          </template>
-          <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="2-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-submenu index="3">
-          <template slot="title">
-            <i class="el-icon-setting"></i>导航三
-          </template>
-          <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="3-1">选项1</el-menu-item>
-            <el-menu-item index="3-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="3-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="3-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-      </el-menu>
-    </el-aside>
-
-    <el-container>
-      <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <span>王小虎</span>
-      </el-header>
-
-      <el-main>
-        <el-table :data="tableData">
-          <el-table-column prop="date" label="日期" width="140"></el-table-column>
-          <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-          <el-table-column prop="address" label="地址"></el-table-column>
-        </el-table>
-      </el-main>
-    </el-container>
-  </el-container>
+  <avue-crud
+    :data="data"
+    :option="option"
+    @row-save="rowSave"
+    @row-update="rowUpdate"
+    @row-del="rowDel"
+    @refresh-change="refresh"
+  ></avue-crud>
 </template>
 
 
@@ -80,14 +25,67 @@
 <script>
 export default {
   data() {
-    const item = {
-      date: "2016-05-02",
-      name: "王小虎",
-      address: "上海市普陀区金沙江路 1518 弄"
-    };
     return {
-      tableData: Array(20).fill(item)
+      data: [
+        {
+          name: "张三",
+          sex: "男"
+        },
+        {
+          name: "李四",
+          sex: "女"
+        }
+      ],
+      option: {
+        page: false,
+        align: "center",
+        menuAlign: "center",
+        menuWidth: 400,
+        viewBtn: true,
+        column: [
+          {
+            label: "姓名",
+            prop: "name"
+          },
+          {
+            label: "性别",
+            prop: "sex"
+          }
+        ]
+      }
     };
+  },
+  methods: {
+    rowSave(form, done, loading) {
+      this.$message.success("模拟网络请求");
+      setTimeout(() => {
+        this.$message.success("关闭按钮等待");
+        loading();
+      }, 1000);
+      setTimeout(() => {
+        this.$message.success("新增数据" + JSON.stringify(form));
+        done();
+      }, 2000);
+    },
+    refresh(val) {
+      this.$message.success("刷新回调,当前分页对象" + JSON.stringify(val));
+    },
+    // rowDel(form, index) {
+    //   this.$message.success("删除数据" + JSON.stringify(form));
+    // },
+    rowUpdate(form, index, done, loading) {
+      this.$message.success("模拟网络请求");
+      setTimeout(() => {
+        this.$message.success("关闭按钮等待");
+        loading();
+      }, 1000);
+      setTimeout(() => {
+        this.$message.success(
+          "编辑数据" + JSON.stringify(form) + "数据序号" + index
+        );
+        done();
+      }, 2000);
+    }
   }
 };
 </script>
