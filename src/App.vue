@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <el-container >
+      <el-container>
+        <el-aside width="240px" height="1014px">
+          <left></left>
+        </el-aside>
+      </el-container>
+    </el-container>
+    <div id="nav"></div>
+    <router-view />
   </div>
 </template>
+<script>
+import left from "./components/left.vue";
 
+export default {
+  components: {
+    left: left
+  }
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -29,4 +41,10 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+ .el-aside {
+    background-color: #FFFFFF;
+    color: #333333;
+    text-align: center;
+    line-height: 1014px;
+  }
 </style>
