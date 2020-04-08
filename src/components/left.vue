@@ -18,7 +18,7 @@
       <i class="el-icon-sort"></i>
       <span slot="title">公文流转</span>
     </el-menu-item>
-    <el-menu-item index="4">
+    <el-menu-item index="/save">
       <i class="el-icon-folder-opened"></i>
       <span slot="title">存档文库</span>
     </el-menu-item>
