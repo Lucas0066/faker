@@ -10,17 +10,17 @@
       <i class="el-icon-edit-outline"></i>
       <span slot="title">发文办理</span>
     </el-menu-item>
-    <el-menu-item index="/">
+    <el-menu-item index="/about">
       <i class="el-icon-document-add"></i>
       <span slot="title">收文办理</span>
     </el-menu-item>
-    <el-menu-item index="/about">
+    <el-menu-item index="/tran">
       <i class="el-icon-sort"></i>
-      <span slot="title">公文交换</span>
+      <span slot="title">公文流转</span>
     </el-menu-item>
     <el-menu-item index="4">
       <i class="el-icon-folder-opened"></i>
-      <span slot="title">公文文库</span>
+      <span slot="title">存档文库</span>
     </el-menu-item>
   </el-menu>
 </template>

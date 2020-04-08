@@ -36,36 +36,48 @@ export default {
     return {
       data: [
         {
-          name: "张三",
-          sex: "男"
+          id: "1",
+          status: "已办",
+          title: "三门峡市",
+          name: "张三"
         },
         {
-          name: "李四",
-          sex: "女"
+          id :"2",
+          status: "已办",
+          title: "三门峡市",
+          name: "赵四"
         }
       ],
+
       option: {
         columnBtn: false,
         refreshBtn: false,
-        saveBtn: false,
+        border: true,
         updateBtn: false,
         cancelBtn: false,
         addBtn: false,
         delBtn: false,
         editBtn: false,
-        index: true,
+       
         page: false,
-
         align: "center",
         menuAlign: "center",
         column: [
-          {
-            label: "姓名",
-            prop: "name"
+        {
+            label: "序号",
+            prop: "id"
           },
           {
-            label: "性别",
-            prop: "sex"
+            label: "状态",
+            prop: "status"
+          },
+          {
+            label: "标题",
+            prop: "title"
+          },
+          {
+            label: "发起人",
+            prop: "name"
           }
         ]
       }

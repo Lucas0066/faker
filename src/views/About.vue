@@ -42,6 +42,7 @@ export default {
         menuAlign: "center",
         menuWidth: 400,
         viewBtn: true,
+         showBorder: true,
         column: [
           {
             label: "姓名",
