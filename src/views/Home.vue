@@ -40,13 +40,11 @@ export default {
       activeName: "second",
       data: [
         {
-          id: "1",
           status: "已办",
           title: "三门峡市",
           name: "张三"
         },
         {
-          id: "2",
           status: "已办",
           title: "三门峡市",
           name: "赵四"
@@ -62,15 +60,13 @@ export default {
         addBtn: false,
         delBtn: false,
         editBtn: false,
-
+        index: true,
+        indexLabel: "序号",
+        indexWidth: "80",
         page: false,
         align: "center",
         menuAlign: "center",
         column: [
-          {
-            label: "序号",
-            prop: "id"
-          },
           {
             label: "状态",
             prop: "status"
