@@ -1,7 +1,7 @@
 <template>
-   <el-container style="height: 942px;  background-color : #FFFFFF; border: 1px solid #eee  ">
+    <el-row class="tab-list">
     <avue-crud :option="option" :data="list"></avue-crud>
-     </el-container>
+    </el-row>
 </template>
 <script>
 export default {
@@ -46,3 +46,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.tab-list {
+  min-height: calc(100vh - 118px);
+  background: #ffffff;
+  padding: 20px;
+}
+</style>

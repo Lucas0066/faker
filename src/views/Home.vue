@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    <el-container style="height: 942px;  background-color : #FFFFFF; border: 1px solid #eee  ">
+    <el-row class="tab-list">
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="已办" name="first"></el-tab-pane>
+        <el-tab-pane label="待办" name="second"></el-tab-pane>
+      </el-tabs>
       <avue-crud :data="data" :option="option" ref="crud">
         <template slot="menuLeft">
-          <div class="right-items" style="float: right;">
-            <el-button type="warning" size="small" round @click.stop="handleAdd()">新增发文办理</el-button>
-          </div>
+          <el-button type="warning" size="small" round @click.stop="handleAdd()">新增发文</el-button>
         </template>
+
         <template slot="menuForm">
           <el-button
             type="primary"
@@ -26,7 +29,7 @@
           >办理</el-button>
         </template>
       </avue-crud>
-    </el-container>
+    </el-row>
   </div>
 </template>
 
@@ -34,6 +37,7 @@
 export default {
   data() {
     return {
+      activeName: "second",
       data: [
         {
           id: "1",
@@ -42,7 +46,7 @@ export default {
           name: "张三"
         },
         {
-          id :"2",
+          id: "2",
           status: "已办",
           title: "三门峡市",
           name: "赵四"
@@ -58,12 +62,12 @@ export default {
         addBtn: false,
         delBtn: false,
         editBtn: false,
-       
+
         page: false,
         align: "center",
         menuAlign: "center",
         column: [
-        {
+          {
             label: "序号",
             prop: "id"
           },
@@ -89,7 +93,17 @@ export default {
     },
     handleEdit(row, index) {
       this.$refs.crud.rowEdit(row, index);
+    },
+    handleClick(tab, event) {
+      console.log(tab, event);
     }
   }
 };
 </script>
+<style scoped>
+.tab-list {
+  min-height: calc(100vh - 118px);
+  background: #ffffff;
+  padding: 20px;
+}
+</style>

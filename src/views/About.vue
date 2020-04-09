@@ -1,92 +1,50 @@
-<template>
-  <avue-crud
-    :data="data"
-    :option="option"
-    @row-save="rowSave"
-    @row-update="rowUpdate"
-    @row-del="rowDel"
-    @refresh-change="refresh"
-  ></avue-crud>
+  <template>
+  
+    <el-row class="tab-list">
+         <el-divider></el-divider>
+      <el-table :data="tableData" style="width: 100%">
+        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
+      </el-table>
+    </el-row>
+
 </template>
 
-
-<style>
-.el-header {
-  background-color: #b3c0d1;
-  color: #333;
-  line-height: 60px;
-}
-
-.el-aside {
-  color: #333;
-}
-</style>
-
-<script>
+  <script>
 export default {
   data() {
     return {
-      data: [
+      tableData: [
         {
-          name: "张三",
-          sex: "男"
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
         },
         {
-          name: "李四",
-          sex: "女"
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
         }
-      ],
-      option: {
-        page: false,
-        align: "center",
-        menuAlign: "center",
-        menuWidth: 400,
-        viewBtn: true,
-         showBorder: true,
-        column: [
-          {
-            label: "姓名",
-            prop: "name"
-          },
-          {
-            label: "性别",
-            prop: "sex"
-          }
-        ]
-      }
+      ]
     };
-  },
-  methods: {
-    rowSave(form, done, loading) {
-      this.$message.success("模拟网络请求");
-      setTimeout(() => {
-        this.$message.success("关闭按钮等待");
-        loading();
-      }, 1000);
-      setTimeout(() => {
-        this.$message.success("新增数据" + JSON.stringify(form));
-        done();
-      }, 2000);
-    },
-    refresh(val) {
-      this.$message.success("刷新回调,当前分页对象" + JSON.stringify(val));
-    },
-    // rowDel(form, index) {
-    //   this.$message.success("删除数据" + JSON.stringify(form));
-    // },
-    rowUpdate(form, index, done, loading) {
-      this.$message.success("模拟网络请求");
-      setTimeout(() => {
-        this.$message.success("关闭按钮等待");
-        loading();
-      }, 1000);
-      setTimeout(() => {
-        this.$message.success(
-          "编辑数据" + JSON.stringify(form) + "数据序号" + index
-        );
-        done();
-      }, 2000);
-    }
   }
 };
 </script>
+<style scoped>
+.tab-list {
+  min-height: calc(100vh - 118px);
+  background: #ffffff;
+  padding: 20px;
+}
+</style>
