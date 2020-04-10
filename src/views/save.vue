@@ -1,7 +1,10 @@
 <template>
   <el-row class="tab-list">
     <avue-data-icons :option="option"></avue-data-icons>
+       <router-link to="/HelloWorld">Go to Foo</router-link>
+         <router-view></router-view>
   </el-row>
+  
 </template>
 <script>
 export default {

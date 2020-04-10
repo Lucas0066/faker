@@ -5,11 +5,13 @@ import 'element-ui/lib/theme-chalk/index.css';
 import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 import router from './router'
+import store from './store'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(Avue);
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
