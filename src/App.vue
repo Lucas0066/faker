@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header style=" background-color: #C5292B ">公文处理系统</el-header>
-      <el-container style="height: 1014px; border: 1px solid #eee ; background-color: #FAFAFA ">
+      <el-header style=" background-color: #C5292B ">
+        <div style="color:#FFFFFF">
+          <p>公文处理系统</p>
+        </div>
+      </el-header>
+      <el-container style=" border: 1px solid #eee ; background-color: #FAFAFA ">
         <el-aside width="240px" style="background-color: #FFFFFF ">
           <left></left>
         </el-aside>

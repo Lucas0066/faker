@@ -41,7 +41,15 @@ Vue.use(VueRouter)
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/save.vue')
-  }
+  },
+  {
+    path: '/documentCategory',
+    name: 'documentCategory',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/documentCategory.vue')
+  },
 ]
 
 const router = new VueRouter({

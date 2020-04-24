@@ -1,46 +1,52 @@
-  <template>
-  
+<template>
     <el-row class="tab-list">
-         <el-divider></el-divider>
-      <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="date" label="日期" width="180"></el-table-column>
-        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-        <el-table-column prop="address" label="地址"></el-table-column>
-      </el-table>
+    <avue-crud :option="option" :data="list"></avue-crud>
     </el-row>
-
 </template>
-
-  <script>
+<script>
 export default {
-  data() {
+  data(){
     return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
+      list:[],
+      option:{
+          addBtn: false,
+          border: true,
+        column:[{
+          label:'序号',
+          prop:'id'
+        },{
+          label:'标题',
+          prop:'title'
+        },{
+          label:'文号',
+          prop:'num'
         },
         {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
+          label:'来文机关',
+          prop:'from'
         },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
+          {
+          label:'状态',
+          prop:'status'
         },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
-        }
-      ]
-    };
+          {
+          label:'收到时间',
+          prop:'time'
+        },
+        ]
+      }
+    }
+    },
+  
+  methods: {
+    handleGet(){
+      window.open('/cdn/demo.xlsx')
+    },
+ 
   }
-};
+}
 </script>
+
 <style scoped>
 .tab-list {
   min-height: calc(100vh - 118px);

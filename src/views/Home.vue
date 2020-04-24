@@ -6,19 +6,13 @@
         <el-tab-pane label="待办" name="second"></el-tab-pane>
       </el-tabs>
       <avue-crud :data="data" :option="option" ref="crud">
-        <template slot="menuLeft">
-          <el-button type="warning" size="small" round @click.stop="handleAdd()">新增发文</el-button>
+        <template slot="menuRight">
+          <el-button type="warning" round @click="handleAdd()">新增发文</el-button>
+        </template>
+        <template slot="status" slot-scope="scope">
+          <el-tag type="info">{{scope.row}}</el-tag>
         </template>
 
-        <template slot="menuForm">
-          <el-button
-            type="primary"
-            icon="el-icon-check"
-            size="small"
-            plain
-            @click.stop="rowSave()"
-          >自定义按钮</el-button>
-        </template>
         <template slot-scope="scope" slot="menu">
           <el-button
             type="text"
@@ -37,7 +31,7 @@
 export default {
   data() {
     return {
-      activeName: "second",
+      activeName: "first",
       data: [
         {
           status: "已办",
@@ -85,7 +79,9 @@ export default {
   },
   methods: {
     handleAdd() {
-      this.$refs.crud.rowAdd();
+      this.$router.push({
+       name: 'documentCategory'
+      });
     },
     handleEdit(row, index) {
       this.$refs.crud.rowEdit(row, index);
@@ -101,5 +97,6 @@ export default {
   min-height: calc(100vh - 118px);
   background: #ffffff;
   padding: 20px;
+ 
 }
 </style>

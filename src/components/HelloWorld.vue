@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="tableData" style="width: 100%">
+  <el-table :data="Data" style="width: 100%">
     <el-table-column label="日期" width="180">
       <template slot-scope="scope">
         <i class="el-icon-time"></i>
@@ -12,7 +12,7 @@
           <p>姓名: {{ scope.row.name }}</p>
           <p>住址: {{ scope.row.address }}</p>
           <div slot="reference" class="name-wrapper">
-            <el-tag size="medium">{{ scope.row.name }}</el-tag>
+            <el-tag stauts = info size="medium">{{ scope.row.name  }}</el-tag>
           </div>
         </el-popover>
       </template>
@@ -30,7 +30,7 @@
 export default {
   data() {
     return {
-      tableData: [
+      Data: [
         {
           date: "2016-05-02",
           name: "王小虎",
